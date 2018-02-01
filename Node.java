@@ -6,6 +6,7 @@ public class Node {
 	private int machine;
 	private char task;
 	private char[] history; //all the machine task assignments for penalty sum 
+	private int penaltySum;
 	
 	Node(Node parent, int machine, char task){
 		this.parent = parent;
