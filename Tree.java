@@ -10,14 +10,7 @@ public class Tree {
 
 	}
 
-	public Node minLowerBound(Node[] children) {
-		
-		return 
-	}
 	
-	public int calcLowerBound(Constraint constraint) {
-		
-	}
 	
 	public void createChildren(Node parent) {
 		
