@@ -11,23 +11,22 @@ public class Tree {
 	}
 
 	/**
-+	 * Class minLowerBound returns the child node with minimum lower bound
-+	 * @author Ga Hyung Kim
-+	 * @param children An array of children nodes with same parent
-+	 * @return Node[index] Element of an array of children nodes with minimum lower bound
-+	 */
+	 * Class minLowerBound returns the child node with minimum lower bound
+	 * @author Ga Hyung Kim
+	 * @param children An array of children nodes with same parent
+	 * @return Node[index] Element of an array of children nodes with minimum lower bound
+	 */
  	public Node minLowerBound(Node[] children) {
--		
--		return 
-+		int min = Integer.MAX_VALUE;
-+		int index = -1;
-+		for (int i=0; i < children.length; i++) {
-+			if (Node[i].lowerBound < min) {
-+				min = Node[i].lowerBound;
-+				index = i;
-+			}
-+		}
-+		return Node[index];
+		
+		int min = Integer.MAX_VALUE;
+		int index = -1;
+		for (int i=0; i < children.length; i++) {
+			if (Node[i].lowerBound < min) {
+				min = Node[i].lowerBound;
+				index = i;
+			}
+		}
+		return Node[index];
  	}
 	
 	public int calcLowerBound(Constraint constraint) {
