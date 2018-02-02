@@ -1,8 +1,13 @@
 Name:
 Bobby Mcferrin
 
+
+
+
 forced partial assignment:
 (1, C)
+(3, F)
+(7, B)
 
 forbidden machine:
 (2, D)
