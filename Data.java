@@ -69,41 +69,56 @@ public class Data {
 				
 //				System.out.println(arr1.length);
 				
-				for (int i = 1; i < arr2.length; i ++) {
-					if (!(arr2[i].trim() == "" || arr2[i].trim() == "\n")) {
-						System.out.println(arr2[i]);
+				for (int i = 1; i < arr3.length; i ++) {
+					if (!(arr3[i].trim() == "" || arr3[i].trim() == "\n")) {
+						System.out.println(arr3[i]);
 					}
 
 				}
-					
 				
+				System.out.println("");
 				
-//				sc.useDelimiter("forced partial assignment:");
-//				sc.next();
-//				sc.nextLine();
-//				sc.useDelimiter("forbidden machine:");
-//				String arr[] = sc.next().split("\n");
-//				
-//				for (int i = 0; i < arr.length; i ++) {
-//					System.out.println(arr[i]);
-//				}
+				sc.useDelimiter("too-near penalties:");
+				String arr4[] = sc.next().split("\n");
+				
+//				System.out.println(arr1.length);
+				String[][] macPenArrStr = new String[8][8];
+				int[][] macPenArrInt = new int[8][8];
+				
+				//System.out.println(arr4.length);
+				
+				for (int i = 1; i < arr4.length; i ++) {
+					if (!(arr4[i].trim() == "" || arr4[i].trim() == "\n")) {
+						System.out.println(arr4[i]);
+						macPenArrStr[i-1] = arr4[i].split(" "); 
+						for (int j = 0; j < 8; j ++) {
+							macPenArrInt[i-1][j] = Integer.parseInt(macPenArrStr[i-1][j]);
+						}
+						
+					}
+
+				}
+
+				System.out.println("");
+				sc.nextLine();
+				String temp;
+				while (sc.hasNextLine()) {
+						temp = sc.nextLine();
+						if (!(temp.trim().equalsIgnoreCase("") || temp.trim().equalsIgnoreCase("\n") )) {
+							System.out.println(temp);
+						}
+						
+					}
+
+				
+//			
 				
 			
-					}
+		}
 		catch (FileNotFoundException e) {
 			System.out.println("file not found");
 		}
 		
 	}
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
 	
 }
