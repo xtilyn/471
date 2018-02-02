@@ -1,18 +1,21 @@
+import java.util.ArrayList;
 
 public class Tree {
 		Constraint constraint;
 		Node rootNode;
-		Node[] finalSol; 
+		Node[] finalSol;
 		int currentLowerBound;
 		
 	public Tree() {
 		this.constraint = new Constraint();
 		this.rootNode = new Node(null, -1, ' ');
+		this.finalSol = new Node[8]; 
 	}
 
 	public static void main(String[] args) {
 		Tree tree = new Tree();
 		currentLowerBound = tree.initSolution();
+		search();
 	}
 	
 	public int initSolution() {
@@ -30,9 +33,46 @@ public class Tree {
 		return tempNode.getLowerBound();
 	}
 	
+	//check if open
+	// 	if closed go to parent
 	// create children --> check if has children already
-	public 
+	public void search() {
+		ArrayList<Node> openChildrenNodes = new ArrayList<Node>();
+		for (Node childNode : rootNode.getChildren()) {
+			if ((childNode.getLowerBound() < currentLowerBound) && childNode.getOpen()) {
+				openChildrenNodes.add(childNode);
+			}
+		}
+		while (openChildrenNodes.size() != 0) {
+			minLowerBound
+			
+			//Check if node has children, if not, generate them and calc LB
+			//if current node is node 6, then find best child, find LB for each child
+			//update CLB if possible, and close and remove all nodes in openChildrenNodes 
+			//with LB > CLB
+			//close parent
+			
+			//else:
+			//add all new children with LB < CLB to openChildrenNode
+			
+			
+		}
+	}
 	
+	/* 	
+	 * Node[] openChildrenNodes;
+	 * 
+	 * 		if less than curentLB
+	 * 			check if have children
+	 * 				if no children --> create children
+	 * 					store all children in openChildrenNodes
+	 * 					
+	 * 				else has children 
+	 * 					check if child is closed
+	 * 					store all open children in openChildrenNodes 
+	 * 		else greater than currentLB
+	 * 			close the node 
+	 */
 
 	/**
 	 * Class minLowerBound returns the child node with minimum lower bound
@@ -40,17 +80,17 @@ public class Tree {
 	 * @param children An array of children nodes with same parent
 	 * @return Node[index] Element of an array of children nodes with minimum lower bound
 	 */
- 	public Node minLowerBound(Node[] children) {
+ 	public Node minLowerBound(ArrayList<Node> children) {
 		
 		int min = Integer.MAX_VALUE;
 		int index = -1;
-		for (int i=0; i < children.length; i++) {
-			if (Node[i].lowerBound < min) {
-				min = Node[i].lowerBound;
+		for (int i=0; i < children.size(); i++) {
+			if (children.get(i).lowerBound < min) {
+				min = children.get(i).lowerBound;
 				index = i;
 			}
 		}
-		return Node[index];
+		return children.get(index);
  	}
 	
 	public void calcLowerBound(Node node) {
