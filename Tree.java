@@ -74,5 +74,66 @@ public class Tree {
 	public void createChildren(Node parent) {
 		
 	}
-	
+
+	public int convertInt(char task){
+		int taskInt;
+		switch(task){
+			case 'A':
+				taskInt = 0;
+				break;
+			case 'B':
+				taskInt = 1;
+				break;
+			case 'C':
+				taskInt = 2;
+				break;
+			case 'D':
+				taskInt = 3;
+				break;
+			case 'E':
+				taskInt = 4;
+				break;
+			case 'F':
+				taskInt = 5;
+				break;
+			case 'G':
+				taskInt = 6;
+				break;
+			case 'H':
+				taskInt = 7;
+				break;
+		}
+		return taskInt;
+	}
+
+	public char convertChar(int task){
+		char taskChar;
+		switch(task){
+			case 0:
+				taskChar = 'A';
+				break;
+			case 1:
+				taskChar = 'B';
+				break;
+			case 2:
+				taskChar = 'C';
+				break;
+			case 3:
+				taskChar = 'D';
+				break;
+			case 4:
+				taskChar = 'E';
+				break;
+			case 5:
+				taskChar = 'F';
+				break;
+			case 6:
+				taskChar = 'G';
+				break;
+			case 7:
+				taskChar = 'H';
+				break;
+		}
+		return taskChar;
+	}
 }
