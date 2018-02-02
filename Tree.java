@@ -1,14 +1,38 @@
 
 public class Tree {
-	
+		Constraint constraint;
+		Node rootNode;
+		Node[] finalSol; 
+		int currentLowerBound;
+		
 	public Tree() {
-		// TODO Auto-generated constructor stub
+		this.constraint = new Constraint();
+		this.rootNode = new Node(null, -1, ' ');
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Tree tree = new Tree();
+		currentLowerBound = tree.initSolution();
 	}
+	
+	public int initSolution() {
+		Node tempNode = rootNode;
+		calcLowerBound(tempNode);
+		for (i=0;i<8;i++) {
+			createChildren(tempNode);
+			for (Node childNode : tempNode.getChildren()) {
+				calcLowerBound(childNode);
+			}
+			tempNode = minLowerBound(tempNode.getChildren());
+		}
+		tempNode.getParent().setOpen(false);
+		finalSol = tempNode.getHistory();
+		return tempNode.getLowerBound();
+	}
+	
+	// create children --> check if has children already
+	public 
+	
 
 	/**
 	 * Class minLowerBound returns the child node with minimum lower bound
@@ -29,7 +53,7 @@ public class Tree {
 		return Node[index];
  	}
 	
-	public int calcLowerBound(Constraint constraint, Node node) {
+	public void calcLowerBound(Node node) {
 
 		Node calcNode = node; //the node that we are calculating lower bound for
 		int[][] penalty = constraint.getPenalty(); //gets penalty 2D array from constraint class
@@ -105,67 +129,14 @@ public class Tree {
 		
 		// pass the children array to the parent node
 		parent.setChildren(childrenArray);
+		parent.setHasChildren(true);
 	}
 
 	public int convertInt(char task){
-		int taskInt;
-		switch(task){
-			case 'A':
-				taskInt = 0;
-				break;
-			case 'B':
-				taskInt = 1;
-				break;
-			case 'C':
-				taskInt = 2;
-				break;
-			case 'D':
-				taskInt = 3;
-				break;
-			case 'E':
-				taskInt = 4;
-				break;
-			case 'F':
-				taskInt = 5;
-				break;
-			case 'G':
-				taskInt = 6;
-				break;
-			case 'H':
-				taskInt = 7;
-				break;
-		}
-		return taskInt;
+		return task - 65;
 	}
 
 	public char convertChar(int task){
-		char taskChar;
-		switch(task){
-			case 0:
-				taskChar = 'A';
-				break;
-			case 1:
-				taskChar = 'B';
-				break;
-			case 2:
-				taskChar = 'C';
-				break;
-			case 3:
-				taskChar = 'D';
-				break;
-			case 4:
-				taskChar = 'E';
-				break;
-			case 5:
-				taskChar = 'F';
-				break;
-			case 6:
-				taskChar = 'G';
-				break;
-			case 7:
-				taskChar = 'H';
-				break;
-		}
-		return taskChar;
+		return char(task+65);
 	}
 }

@@ -5,12 +5,32 @@ public class Node {
 	private Node[] children;
 	private int machine;
 	private char task;
-	private char[] history; //all the machine task assignments for penalty sum 
+	private char[] history = new char[8]; //all the machine task assignments for penalty sum 
+	private boolean open;
+	private boolean hasChildren;
 	
 	Node(Node parent, int machine, char task){
 		this.parent = parent;
 		this.machine = machine;
 		this.task = task;
+		this.open = true; //false means closed
+		this.hasChildren = false;
+	}
+	
+	public boolean getHasChildren() {
+		return hasChildren;
+	}
+	
+	public setHasChildren(boolean hasChildren) {
+		this.hasChildren = hasChildren;
+	}
+	
+	public boolean getOpen() {
+		return open;
+	}
+	
+	public setOpen(boolean open) {
+		this.open = open;
 	}
 
 	public Node getParent() {
