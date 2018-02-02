@@ -8,9 +8,10 @@ public class Data {
 	private String fileName;
 	public String name;
 	public int[][] macPenArrInt = new int[8][8];
+	public int[] forcedPartialAssignment = new int[8];
 	
 	
-	//This is the disgusting ass constructor that doesnt even work properly
+	//This is the disgusting ass constructor that doesn't even work properly
 	
 	public Data() {
 		
@@ -116,7 +117,10 @@ public class Data {
 	}
 	
 	
-	
+	public int getPenalty(int Machine, char task_c) {
+		int task = task_c - 65;
+		return macPenArrInt[Machine][task];
+	}
 	
 	
 	
