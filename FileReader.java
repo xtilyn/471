@@ -13,12 +13,7 @@ public class FileReader {
 		
 		
 			
-//		try {
-//		Scanner sc = new Scanner(new FileInputStream(fileName));
-//		} catch (FileNotFoundException e) {
-//		// error message I guess?
-//		e.printStackTrace();
-//		}	
+//	
 	}
 	
 	
