@@ -1,28 +1,23 @@
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class Data {
 	
 	private String fileName;
-	public static String name;
+	public String name;
+	public int[][] macPenArrInt = new int[8][8];
 	
-	//This main method is just for testing!
-	public static void main(String[] args) {
+	
+	//This is the disgusting ass constructor that doesnt even work properly
+	
+	public Data() {
 		
 		try {
 			
 			Scanner sc = new Scanner(new FileInputStream("data.txt"));
-			
-			
-//				//read the name 
-//				String temp = sc.nextLine();
-//				if (temp.equals("Name:")) {
-//					name = sc.nextLine();
-//				}
 				
-			
 			
 				sc.useDelimiter("forced partial assignment:");
 				String arr[] = sc.next().split("\n");
@@ -33,7 +28,6 @@ public class Data {
 					if (!(arr[i].trim() == "" || arr[i].trim() == "\n")) {
 						System.out.println(arr[i]);
 					}
-
 				}
 				
 				
@@ -83,7 +77,7 @@ public class Data {
 				
 //				System.out.println(arr1.length);
 				String[][] macPenArrStr = new String[8][8];
-				int[][] macPenArrInt = new int[8][8];
+				
 				
 				//System.out.println(arr4.length);
 				
@@ -110,15 +104,21 @@ public class Data {
 						
 					}
 
-				
-//			
-				
+
 			
 		}
-		catch (FileNotFoundException e) {
-			System.out.println("file not found");
+		
+		catch (IOException e) {
+			System.out.println("Something broke");
 		}
+
 		
 	}
+	
+	
+	
+	
+	
+	
 	
 }
