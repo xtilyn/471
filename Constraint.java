@@ -24,6 +24,27 @@ public class Constraint {
     private int[][] machinePenalties;
     private ArrayList<Object> tooNearPenalties;
     
+    public Constraint(int constraintType) {
+		this.type = constraintType;
+		switch (constraintType) {
+		case FORCED_PARTIAL_ASSIGNMENT:
+			this.forced = new ArrayList<>();
+			break;
+		case FORBIDDEN_MACHINE:
+			this.forbidden = new ArrayList<>();
+			break;
+		case TOO_NEAR_TASKS:
+			this.tooNearTask = new ArrayList<>();
+			break;
+		case MACHINE_PENALTIES:
+			this.machinePenalties = new int[8][8];
+			break;
+		default:
+			this.tooNearPenalties = new ArrayList<>();
+			break;
+		}
+	}
+    
     public void setForcedConstraint(int machine, char task) {
     	forced.add(machine);
     	forced.add(task);
