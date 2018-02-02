@@ -1,18 +1,21 @@
+import java.util.ArrayList;
 
 public class Node {
 	private Node parent;
 	private int lowerBound;
-	private Node[] children;
+	private ArrayList<Node> children;
 	private int machine;
 	private char task;
-	private char[] history = new char[8]; //all the machine task assignments for penalty sum 
+	private char[] history; //all the machine task assignments for penalty sum 
 	private boolean open;
 	private boolean hasChildren;
 	
 	Node(Node parent, int machine, char task){
 		this.parent = parent;
+		this.children = new ArrayList<Node>();
 		this.machine = machine;
 		this.task = task;
+		this.history = new char[8];
 		this.open = true; //false means closed
 		this.hasChildren = false;
 	}
