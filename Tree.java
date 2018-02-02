@@ -102,7 +102,7 @@ public class Tree {
 		// initialize the children nodes; create nodes for only the available tasks
 		for (int i = 0; i < availableTasks.length; i++) {
 			if (availableTasks[i] != '') {
-				childrenArray[i] = new Node(parent, parentMachine + 1, availableTasks[i]);
+				childrenArray.add(new Node(parent, parentMachine + 1, availableTasks[i]));
 			}
 		}
 		
