@@ -44,7 +44,20 @@ public class Tree {
 			}
 		}
 		while (openChildrenNodes.size() != 0) {
-			minLowerBound
+			Node tempNode = minLowerBound(openChildrenNodes);
+			if (!tempNode.hasChildren()) {
+				createChildren(tempNode);
+				for (Node childNode : tempNode.getChildren()) {
+					calcLowerBound(childNode);
+				}
+			}	
+			if (tempNode.getMachine() == 6) {
+				Node minChild = minLowerBound(tempNode.getChildren());
+				if (currentLowerBound > minChild.getLowerBound()) {
+					currentLowerBound = minChild.getLowerBound();
+				}
+				tempNode.setOpen = false;
+			}
 			
 			//Check if node has children, if not, generate them and calc LB
 			//if current node is node 6, then find best child, find LB for each child
